@@ -390,13 +390,96 @@ a:hover {
   border: 1px solid var(--line);
   border-radius: 12px;
   font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+
+.airdrop-form input:disabled {
   background: #f7f2ec;
   color: var(--muted);
+  cursor: not-allowed;
+}
+
+.airdrop-form input:focus {
+  outline: 2px solid var(--leaf);
+  outline-offset: 1px;
+  border-color: var(--leaf);
+}
+
+.airdrop-form .btn {
+  width: 100%;
 }
 
 .form-hint {
   margin: 0.25rem 0 0;
   font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.claim-countdown {
+  margin: 0 0 1rem;
+  padding: 0.9rem 0.95rem 0.85rem;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.claim-countdown.is-open {
+  background: var(--leaf-soft);
+  border-color: #b7d0c2;
+}
+
+.countdown-lead {
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.claim-countdown.is-open .countdown-lead {
+  margin-bottom: 0.3rem;
+  color: var(--leaf);
+}
+
+.countdown-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.55rem;
+}
+
+.countdown-grid[hidden] {
+  display: none;
+}
+
+.cd-unit {
+  flex: 1 1 4.5rem;
+  min-width: 4.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.45rem 0.3rem 0.35rem;
+}
+
+.cd-unit span {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.cd-unit small {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.countdown-meta {
+  margin: 0;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 
