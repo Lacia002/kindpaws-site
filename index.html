@@ -40,29 +40,30 @@
           <h1>KindPaws <span class="muted">KIND</span></h1>
           <p class="tagline-en">Kindness for every paw.</p>
         </div>
-        <form class="crowdfund-card" id="crowdfund" action="#" method="get">
-          <h2>参与众筹</h2>
-          <p class="crowdfund-lead">接受 USDC、USDT、SOL。这里只记录参与意向并预估 KIND，不发起链上支付。</p>
-          <fieldset class="asset-choices">
-            <legend class="sr-only">支付资产</legend>
-            <label><input type="radio" name="crowdfund-asset" value="USDC" checked /> USDC</label>
-            <label><input type="radio" name="crowdfund-asset" value="USDT" /> USDT</label>
-            <label><input type="radio" name="crowdfund-asset" value="SOL" /> SOL</label>
-          </fieldset>
-          <label for="crowdfund-amount">金额</label>
-          <input id="crowdfund-amount" name="amount" type="text" inputmode="decimal" placeholder="至少 1" autocomplete="off" spellcheck="false" />
-          <p class="kind-estimate" id="crowdfund-estimate">预估 0 KIND</p>
-          <p class="crowdfund-rules" id="crowdfund-rules">1 USDC = 1,000 KIND。单人下限 1 USDC。硬顶 2.5 亿 KIND。</p>
-          <label for="crowdfund-wallet">钱包地址（切勿填写助记词或私钥）</label>
-          <input id="crowdfund-wallet" name="wallet" type="text" placeholder="填写 Solana 地址…" autocomplete="off" spellcheck="false" />
-          <button class="btn btn-primary" id="crowdfund-submit" type="submit">提交参与意向</button>
-          <p class="form-hint" id="crowdfund-hint">窗口自上线起 30 天。预估 KIND 是参与凭证换算，不是收益承诺。</p>
-          <div class="claim-saved" id="crowdfund-saved" hidden>
-            <p class="claim-saved-title" id="crowdfund-saved-title" aria-live="polite">已记录</p>
-            <pre class="claim-summary" id="crowdfund-summary"></pre>
-            <button class="btn btn-ghost" id="crowdfund-copy" type="button">复制摘要</button>
+        <aside class="crowdfund-card" id="crowdfund" aria-labelledby="crowdfund-title">
+          <h2 id="crowdfund-title">众筹 KIND 桶</h2>
+          <p class="crowdfund-lead">Squads 多签控制的众筹代币桶，链上余额 250,000,000 KIND。这里公示的是桶内 KIND，不是 USDC、USDT 或 SOL 的收款地址。</p>
+          <div class="addr-block">
+            <p class="addr-kicker">Vault PDA · 桶地址</p>
+            <p class="addr-hero" id="crowdfund-vault">Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt</p>
+            <div class="addr-actions">
+              <button class="btn btn-primary" type="button" data-copy="Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt" data-copy-name="桶地址">复制桶地址</button>
+              <a class="btn btn-ghost" href="https://solscan.io/account/Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt" rel="noopener noreferrer" target="_blank">Solscan</a>
+            </div>
           </div>
-        </form>
+          <div class="addr-block">
+            <p class="addr-kicker">KIND ATA · 250,000,000 KIND</p>
+            <p class="addr-line"><a class="mono" href="https://solscan.io/account/Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr" rel="noopener noreferrer" target="_blank">Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr</a></p>
+            <div class="addr-actions">
+              <button class="btn btn-ghost" type="button" data-copy="Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr" data-copy-name="KIND ATA">复制 ATA</button>
+              <a class="btn btn-ghost" href="https://solscan.io/account/Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr" rel="noopener noreferrer" target="_blank">Solscan</a>
+            </div>
+          </div>
+          <p class="addr-kicker">Mint</p>
+          <p class="addr-line"><a class="mono" href="https://solscan.io/token/7DSCRKxYD4iS9vwjkUgrYWkXpoCjmuZP38dcERNFdZwa" rel="noopener noreferrer" target="_blank">7DSCRKxYD4iS9vwjkUgrYWkXpoCjmuZP38dcERNFdZwa</a></p>
+          <p class="crowdfund-rules">1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口至 2026-12-03 19:13:24（北京时间）。硬顶 2.5 亿 KIND。现金按 60% 救助国库 / 40% 项目完善拆分，收款地址尚未公布。请勿向这个 KIND ATA 转入 SOL、USDC 或 USDT。</p>
+          <p class="sr-only" id="crowdfund-copy-live" aria-live="polite"></p>
+        </aside>
         <div class="hero-body">
           <p class="lead">
             <strong>让善意可追踪、让参与可轻量、让救助可复盘。</strong>
@@ -72,10 +73,10 @@
             KIND 部署于 <strong>Solana</strong>；模式为<strong>自愿众筹 + 贡献导向空投</strong>。代币是社区<strong>参与与治理信号</strong>，不是理财产品——无保本、无 APY、无「买入即暴富」。
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#crowdfund">参与众筹</a>
+            <a class="btn btn-primary" href="#crowdfund">查看众筹桶</a>
             <a class="btn btn-ghost" href="#access">合约与金库地址</a>
           </div>
-          <p class="hero-note">文案对齐白皮书 v0.1.1-draft（2026-11-03）· 总量/六桶比例与众筹现金 60/40 已拍板；众筹窗口、资产、下限与硬顶见本页参与表单 · 非正式投资要约</p>
+          <p class="hero-note">文案对齐白皮书 v0.1.1-draft（2026-11-03）· 总量/六桶比例与众筹现金 60/40 已拍板；众筹 KIND 桶地址见本页卡片 · 非正式投资要约</p>
         </div>
       </div>
     </section>
@@ -103,13 +104,13 @@
           选择轻量链上工具，是为了降低协调成本、提高参与与公示效率——把钱尽量花在猫狗身上，而不是复杂玩法上。
           总量 <strong>10 亿 KIND</strong>、六桶分配比例，以及众筹现金 <strong>60% 救助国库 / 40% 项目完善</strong>（多签+公示）已按白皮书 v0.1.1 公开。
           KIND 已在 Solana 主网部署，Mint、Squads 多签与六桶金库地址见下方公示。
-          众筹窗口、接受资产、兑换预估、单人下限与硬顶见首页参与表。现金科目地址与超额处理仍待公布。该表只记录意向，不发起链上支付。
+          首页公示众筹 KIND 桶的 Vault 与 ATA。USDC、USDT、SOL 收款地址仍待公布，请勿向 KIND ATA 转入其他资产。
         </p>
         <div class="cards">
           <article class="card">
             <div class="card-icon" aria-hidden="true">💚</div>
             <h3>自愿众筹</h3>
-            <p>接受 USDC、USDT、SOL。1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口自上线起 30 天，硬顶为众筹桶 25%（2.5 亿 KIND），单人下限 1 USDT/USDC 或 0.01 SOL。首页可提交参与意向；不发起链上支付，不保证正收益或特定救助结果。</p>
+            <p>接受 USDC、USDT、SOL 的规则仍是：1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口至 2026-12-03 19:13:24（北京时间），硬顶为众筹桶 25%（2.5 亿 KIND），单人下限 1 USDT/USDC 或 0.01 SOL。首页公示的是多签控制的众筹 KIND 桶，不是稳定币或 SOL 收款地址。不保证正收益或特定救助结果。</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true">🎁</div>
@@ -185,7 +186,7 @@
               众筹桶发放细则待「参与须知」单列公示；出钱是支持救助与启动，得代币是参与凭证，不是理财收益。
             </p>
           </div>
-          <p class="draft-note">现金科目 C_treasury / C_ops 接收地址与超额处理仍<strong>待公布</strong>。众筹窗口、接受资产、下限、兑换预估和硬顶见首页。KIND 代币托管多签（2/3）见地址公示，与现金科目不是同一套账。</p>
+          <p class="draft-note">现金科目 C_treasury / C_ops 接收地址与超额处理仍<strong>待公布</strong>。首页卡片是众筹 KIND 桶，不是 USDC、USDT 或 SOL 收款地址。KIND 代币托管多签（2/3）见地址公示，与现金科目不是同一套账。</p>
         </div>
       </div>
     </section>
@@ -418,7 +419,7 @@
       <p class="footer-disclaimer">
         本站为社区项目公开说明页，内容对齐白皮书 v0.1.1-draft，可被后续版本取代。
         KIND 为参与/治理信号，非理财产品；持有或购买不等于捐赠收据或税务抵扣。
-        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开。众筹参与窗口、资产、下限、兑换预估与硬顶见首页；现金科目地址与超额处理仍待公布。空投领取入口为前端测试。
+        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开。首页公示众筹 KIND 桶；USDC、USDT、SOL 收款地址与超额处理仍待公布。空投领取入口为前端测试。
         众筹现金拆分 ≠ 众筹代币发放。项目方、社区与页面维护者就适用法律允许范围内不对直接或间接损失承担责任。正式规则以「参与须知」与官方公告为准。
       </p>
       <p class="footer-contact">

@@ -29,13 +29,12 @@ python3 -m http.server 8080
 
 点击领取后，页面把这两项整理成可读文本：写入本机 `localStorage`（键 `kindpaws.claimNotes`），显示可复制摘要，并下载 `kindpaws-claim.txt`。页面提示「已保存」。点击不调用链上合约，也不会发起交易。
 
-## 首页众筹
+## 首页众筹桶
 
-首页英雄区有可操作的「参与众筹」表（`#crowdfund`），桌面端在标题右侧，手机上紧跟标题。
+首页 `#crowdfund` 公示众筹 KIND 桶，不再提供提交意向的表单。
 
-- 资产：USDC、USDT、SOL
-- 预估：1 USDC 或 1 USDT = 1,000 KIND；1 SOL = 100,000 KIND
-- 单人下限：1 USDT/USDC，或 0.01 SOL
-- 硬顶：众筹桶 25%，即 2.5 亿 KIND
-- 窗口：自本次上线起 30 天，截止 **2026-12-03 19:13:24（Asia/Shanghai）**，ISO `2026-12-03T19:13:24+08:00`。写在 `main.js` 的 `CROWDFUND_ENDS_AT`。
-- 提交只把意向写入本机 `localStorage`（键 `kindpaws.crowdfundNotes`）并显示摘要。不发起链上支付。
+- Vault PDA（桶地址）：`Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt`
+- KIND ATA：`Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr`（250,000,000 KIND）
+- Mint：`7DSCRKxYD4iS9vwjkUgrYWkXpoCjmuZP38dcERNFdZwa`
+- 这是 Squads 多签控制的 KIND 桶，不是 USDC、USDT 或 SOL 收款地址。
+- 规则仍写在卡片上：1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND；窗口至 2026-12-03 19:13:24（北京时间）；硬顶 2.5 亿 KIND；现金 60/40 的收款地址尚未公布。
