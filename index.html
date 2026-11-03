@@ -22,6 +22,7 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="主导航">
         <a href="#vision">愿景</a>
+        <a href="#crowdfund">众筹</a>
         <a href="#mechanism">机制</a>
         <a href="#roadmap">路线图</a>
         <a href="#access">合约 / 空投</a>
@@ -33,22 +34,49 @@
   <main>
     <!-- Hero / 愿景 -->
     <section class="hero" id="vision">
-      <div class="container hero-inner">
-        <p class="eyebrow">Solana · 流浪猫狗救助 · 众筹 + 贡献空投</p>
-        <h1>KindPaws <span class="muted">KIND</span></h1>
-        <p class="tagline-en">Kindness for every paw.</p>
-        <p class="lead">
-          <strong>让善意可追踪、让参与可轻量、让救助可复盘。</strong>
-          我们把「想帮忙」的人，和「正在帮」的人连起来——用轻量、透明、低摩擦的方式，支持流浪猫狗的伤病救治、绝育、临时寄养、转运与基本物资。
-        </p>
-        <p class="lead-sub">
-          KIND 部署于 <strong>Solana</strong>；模式为<strong>自愿众筹 + 贡献导向空投</strong>。代币是社区<strong>参与与治理信号</strong>，不是理财产品——无保本、无 APY、无「买入即暴富」。
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#access">合约与金库地址</a>
-          <a class="btn btn-ghost" href="#mechanism">了解机制</a>
+      <div class="container hero-layout">
+        <div class="hero-intro">
+          <p class="eyebrow">Solana · 流浪猫狗救助 · 众筹 + 贡献空投</p>
+          <h1>KindPaws <span class="muted">KIND</span></h1>
+          <p class="tagline-en">Kindness for every paw.</p>
         </div>
-        <p class="hero-note">文案对齐白皮书 v0.1.1-draft（2026-11-03）· 总量/六桶比例与众筹现金 60/40 已拍板；其余标「草案 / 待公布」项尚未锁定 · 非正式投资要约</p>
+        <form class="crowdfund-card" id="crowdfund" action="#" method="get">
+          <h2>参与众筹</h2>
+          <p class="crowdfund-lead">接受 USDC、USDT、SOL。这里只记录参与意向并预估 KIND，不发起链上支付。</p>
+          <fieldset class="asset-choices">
+            <legend class="sr-only">支付资产</legend>
+            <label><input type="radio" name="crowdfund-asset" value="USDC" checked /> USDC</label>
+            <label><input type="radio" name="crowdfund-asset" value="USDT" /> USDT</label>
+            <label><input type="radio" name="crowdfund-asset" value="SOL" /> SOL</label>
+          </fieldset>
+          <label for="crowdfund-amount">金额</label>
+          <input id="crowdfund-amount" name="amount" type="text" inputmode="decimal" placeholder="至少 1" autocomplete="off" spellcheck="false" />
+          <p class="kind-estimate" id="crowdfund-estimate">预估 0 KIND</p>
+          <p class="crowdfund-rules" id="crowdfund-rules">1 USDC = 1,000 KIND。单人下限 1 USDC。硬顶 2.5 亿 KIND。</p>
+          <label for="crowdfund-wallet">钱包地址（切勿填写助记词或私钥）</label>
+          <input id="crowdfund-wallet" name="wallet" type="text" placeholder="填写 Solana 地址…" autocomplete="off" spellcheck="false" />
+          <button class="btn btn-primary" id="crowdfund-submit" type="submit">提交参与意向</button>
+          <p class="form-hint" id="crowdfund-hint">窗口自上线起 30 天。预估 KIND 是参与凭证换算，不是收益承诺。</p>
+          <div class="claim-saved" id="crowdfund-saved" hidden>
+            <p class="claim-saved-title" id="crowdfund-saved-title" aria-live="polite">已记录</p>
+            <pre class="claim-summary" id="crowdfund-summary"></pre>
+            <button class="btn btn-ghost" id="crowdfund-copy" type="button">复制摘要</button>
+          </div>
+        </form>
+        <div class="hero-body">
+          <p class="lead">
+            <strong>让善意可追踪、让参与可轻量、让救助可复盘。</strong>
+            我们把「想帮忙」的人，和「正在帮」的人连起来——用轻量、透明、低摩擦的方式，支持流浪猫狗的伤病救治、绝育、临时寄养、转运与基本物资。
+          </p>
+          <p class="lead-sub">
+            KIND 部署于 <strong>Solana</strong>；模式为<strong>自愿众筹 + 贡献导向空投</strong>。代币是社区<strong>参与与治理信号</strong>，不是理财产品——无保本、无 APY、无「买入即暴富」。
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#crowdfund">参与众筹</a>
+            <a class="btn btn-ghost" href="#access">合约与金库地址</a>
+          </div>
+          <p class="hero-note">文案对齐白皮书 v0.1.1-draft（2026-11-03）· 总量/六桶比例与众筹现金 60/40 已拍板；众筹窗口、资产、下限与硬顶见本页参与表单 · 非正式投资要约</p>
+        </div>
       </div>
     </section>
 
@@ -75,13 +103,13 @@
           选择轻量链上工具，是为了降低协调成本、提高参与与公示效率——把钱尽量花在猫狗身上，而不是复杂玩法上。
           总量 <strong>10 亿 KIND</strong>、六桶分配比例，以及众筹现金 <strong>60% 救助国库 / 40% 项目完善</strong>（多签+公示）已按白皮书 v0.1.1 公开。
           KIND 已在 Solana 主网部署，Mint、Squads 多签与六桶金库地址见下方公示。
-          窗口、硬顶、发放公式与空投领取仍为<strong>草案 / 待公布</strong>，以正式「参与须知」为准。
+          众筹窗口、接受资产、兑换预估、单人下限与硬顶见首页参与表。现金科目地址与超额处理仍待公布。该表只记录意向，不发起链上支付。
         </p>
         <div class="cards">
           <article class="card">
             <div class="card-icon" aria-hidden="true">💚</div>
             <h3>自愿众筹</h3>
-            <p>在明确时间窗与硬顶（额度<strong>待公布</strong>）内，筹集可公示的启动与救助资金。用途类别事先说明、事后复盘；参与自愿，不保证正收益或特定救助结果。</p>
+            <p>接受 USDC、USDT、SOL。1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口自上线起 30 天，硬顶为众筹桶 25%（2.5 亿 KIND），单人下限 1 USDT/USDC 或 0.01 SOL。首页可提交参与意向；不发起链上支付，不保证正收益或特定救助结果。</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true">🎁</div>
@@ -130,7 +158,7 @@
               </thead>
               <tbody>
                 <tr><td>救助</td><td>35%</td><td>3.5 亿</td><td>救助相关激励/拨付配合或长期储备等；释放规则待公布。<strong>代币桶 ≠ 现金救助国库</strong></td></tr>
-                <tr><td>众筹</td><td>25%</td><td>2.5 亿</td><td>众筹参与相关分配；发放公式与锁仓待公布。<strong>≠ 现金 60/40 拆分</strong></td></tr>
+                <tr><td>众筹</td><td>25%</td><td>2.5 亿</td><td>首页参与预估：1 USDC/USDT = 1,000 KIND，1 SOL = 100,000 KIND。锁仓仍待公布。<strong>≠ 现金 60/40 拆分</strong></td></tr>
                 <tr><td>空投</td><td>15%</td><td>1.5 亿</td><td>贡献导向，多轮释放；计分细则待公布</td></tr>
                 <tr><td>流动性</td><td>15%</td><td>1.5 亿</td><td>仅技术流动性/做市需求，不承诺价格</td></tr>
                 <tr><td>团队</td><td>7%</td><td>0.7 亿</td><td>主网已划入团队金库，待锁 staging；Streamflow 与释放日历尚未建立</td></tr>
@@ -157,7 +185,7 @@
               众筹桶发放细则待「参与须知」单列公示；出钱是支持救助与启动，得代币是参与凭证，不是理财收益。
             </p>
           </div>
-          <p class="draft-note">众筹窗口、硬顶、单人上下限、接受资产、超额处理，以及现金科目 C_treasury / C_ops 接收地址仍<strong>待公布</strong>。KIND 代币托管多签（2/3）见地址公示，与现金科目不是同一套账。</p>
+          <p class="draft-note">现金科目 C_treasury / C_ops 接收地址与超额处理仍<strong>待公布</strong>。众筹窗口、接受资产、下限、兑换预估和硬顶见首页。KIND 代币托管多签（2/3）见地址公示，与现金科目不是同一套账。</p>
         </div>
       </div>
     </section>
@@ -390,7 +418,7 @@
       <p class="footer-disclaimer">
         本站为社区项目公开说明页，内容对齐白皮书 v0.1.1-draft，可被后续版本取代。
         KIND 为参与/治理信号，非理财产品；持有或购买不等于捐赠收据或税务抵扣。
-        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开；硬顶、窗口、发放公式、空投领取与现金科目地址等标为待公布/草案处均未锁定。
+        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开。众筹参与窗口、资产、下限、兑换预估与硬顶见首页；现金科目地址与超额处理仍待公布。空投领取入口为前端测试。
         众筹现金拆分 ≠ 众筹代币发放。项目方、社区与页面维护者就适用法律允许范围内不对直接或间接损失承担责任。正式规则以「参与须知」与官方公告为准。
       </p>
       <p class="footer-contact">

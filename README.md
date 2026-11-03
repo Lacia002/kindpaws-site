@@ -28,3 +28,14 @@ python3 -m http.server 8080
 时间门禁已取消。推特用户名、钱包地址和「领取空投」按钮直接可用，页面显示「已开放」，不再显示「24 小时后开放领取」。
 
 点击领取后，页面把这两项整理成可读文本：写入本机 `localStorage`（键 `kindpaws.claimNotes`），显示可复制摘要，并下载 `kindpaws-claim.txt`。页面提示「已保存」。点击不调用链上合约，也不会发起交易。
+
+## 首页众筹
+
+首页英雄区有可操作的「参与众筹」表（`#crowdfund`），桌面端在标题右侧，手机上紧跟标题。
+
+- 资产：USDC、USDT、SOL
+- 预估：1 USDC 或 1 USDT = 1,000 KIND；1 SOL = 100,000 KIND
+- 单人下限：1 USDT/USDC，或 0.01 SOL
+- 硬顶：众筹桶 25%，即 2.5 亿 KIND
+- 窗口：自本次上线起 30 天，截止 **2026-12-03 19:13:24（Asia/Shanghai）**，ISO `2026-12-03T19:13:24+08:00`。写在 `main.js` 的 `CROWDFUND_ENDS_AT`。
+- 提交只把意向写入本机 `localStorage`（键 `kindpaws.crowdfundNotes`）并显示摘要。不发起链上支付。
