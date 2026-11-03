@@ -25,20 +25,27 @@
 /**
  * 空投领取开关。
  * 临时测试：已取消 CLAIM_OPENS_AT（2026-11-04T18:17:59+08:00）时间门禁。
- * 钱包输入和领取按钮保持可用。点击仍不发起链上交易。
+ * 领取时把推特用户名和钱包地址保存到本机，并下载文本。点击不发起链上交易。
  */
 function initClaimGate() {
+  var STORAGE_KEY = "kindpaws.claimNotes";
   var countdown = document.getElementById("claim-countdown");
   var lead = document.getElementById("countdown-lead");
   var grid = document.getElementById("countdown-grid");
   var meta = document.getElementById("countdown-meta");
   var live = document.getElementById("countdown-live");
   var form = document.getElementById("airdrop-form");
+  var twitter = document.getElementById("twitter");
   var wallet = document.getElementById("wallet");
   var claimButton = document.getElementById("claim-button");
   var claimHint = document.getElementById("claim-hint");
+  var savedBox = document.getElementById("claim-saved");
+  var savedTitle = document.getElementById("claim-saved-title");
+  var summary = document.getElementById("claim-summary");
+  var savedList = document.getElementById("claim-saved-list");
+  var copyButton = document.getElementById("claim-copy");
 
-  if (!countdown || !lead || !grid || !meta || !wallet || !claimButton || !claimHint) {
+  if (!countdown || !lead || !grid || !meta || !twitter || !wallet || !claimButton || !claimHint) {
     return;
   }
 
@@ -47,22 +54,154 @@ function initClaimGate() {
   grid.hidden = true;
   lead.textContent = "已开放";
   meta.textContent = "领取入口已开放，可供测试。";
+  twitter.disabled = false;
   wallet.disabled = false;
   wallet.placeholder = "填写 Solana 地址…";
   claimButton.disabled = false;
   claimButton.textContent = "领取空投";
-  claimHint.textContent =
-    "状态：已开放。可以填写 Solana 地址并点击领取。本页只打开前端入口，点击不会发起链上交易。请勿填写助记词或私钥。";
   if (live) live.textContent = "领取已开放。";
 
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+  var latestText = "";
+
+  function normalizeTwitter(value) {
+    var text = String(value || "").trim();
+    if (text.charAt(0) === "@") text = text.slice(1).trim();
+    if (!text || /\s/.test(text) || text.length > 30) return "";
+    return "@" + text;
+  }
+
+  function normalizeWallet(value) {
+    var text = String(value || "").trim();
+    if (!text || /\s/.test(text) || text.length > 128) return "";
+    return text;
+  }
+
+  function formatWhen(date) {
+    var parts = new Intl.DateTimeFormat("zh-CN", {
+      timeZone: "Asia/Shanghai",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23"
+    }).formatToParts(date);
+    var map = {};
+    parts.forEach(function (part) {
+      map[part.type] = part.value;
+    });
+    return map.year + "-" + map.month + "-" + map.day + " " + map.hour + ":" + map.minute + ":" + map.second;
+  }
+
+  function formatNote(note) {
+    return [
+      "KindPaws 空投领取测试记录",
+      "推特用户名：" + note.twitter,
+      "钱包地址：" + note.wallet,
+      "保存时间：" + note.savedAt + "（北京时间）"
+    ].join("\n");
+  }
+
+  function readNotes() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(function (note) {
+        return note && note.twitter && note.wallet && note.savedAt;
+      });
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function writeNotes(notes) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes.slice(-50)));
+  }
+
+  function renderNotes(notes, justSaved) {
+    if (!savedBox || !savedTitle || !summary || !savedList) return;
+    if (!notes.length) {
+      savedBox.hidden = true;
+      latestText = "";
+      return;
+    }
+    var latest = notes[notes.length - 1];
+    latestText = formatNote(latest);
+    savedBox.hidden = false;
+    savedTitle.textContent = justSaved ? "已保存" : "本机已保存 " + notes.length + " 条";
+    summary.textContent = latestText;
+    savedList.replaceChildren();
+    notes.slice(-8).reverse().forEach(function (note) {
+      var item = document.createElement("li");
+      item.textContent = note.twitter + "  ·  " + note.wallet;
+      savedList.appendChild(item);
     });
   }
 
-  claimButton.addEventListener("click", function () {
-    claimHint.textContent =
-      "领取入口已开放。这次点击没有发起链上交易或转账。请勿填写助记词，也不要向陌生地址转账。";
-  });
+  function downloadText(filename, text) {
+    var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 1000);
+  }
+
+  function saveClaim(event) {
+    if (event) event.preventDefault();
+    var handle = normalizeTwitter(twitter.value);
+    var address = normalizeWallet(wallet.value);
+    if (!handle || !address) {
+      claimHint.textContent = "请填写推特用户名和钱包地址。用户名不要带空格，地址请勿填写助记词或私钥。这次没有保存，也没有发起链上交易。";
+      return;
+    }
+    var note = {
+      twitter: handle,
+      wallet: address,
+      savedAt: formatWhen(new Date())
+    };
+    var notes = readNotes();
+    notes.push(note);
+    var stored = false;
+    try {
+      writeNotes(notes);
+      stored = true;
+    } catch (error) {
+      stored = false;
+    }
+    var text = formatNote(note);
+    downloadText("kindpaws-claim.txt", text);
+    renderNotes(stored ? readNotes() : notes, true);
+    claimHint.textContent = "已保存。摘要在下方，文本文件已下载到本机。这次点击没有发起链上交易。";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(function () {});
+    }
+  }
+
+  if (form) form.addEventListener("submit", saveClaim);
+
+  if (copyButton) {
+    copyButton.addEventListener("click", function () {
+      if (!latestText) return;
+      var done = function () {
+        if (savedTitle) savedTitle.textContent = "已保存";
+        claimHint.textContent = "已保存。摘要已复制。这次没有发起链上交易。";
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(latestText).then(done).catch(function () {
+          claimHint.textContent = "已保存。请在摘要文本上长按或选中后复制。";
+        });
+        return;
+      }
+      claimHint.textContent = "已保存。请在摘要文本上长按或选中后复制。";
+    });
+  }
+
+  renderNotes(readNotes(), false);
 }

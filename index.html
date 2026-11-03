@@ -263,10 +263,18 @@
               <p class="sr-only" id="countdown-live" aria-live="polite">领取已开放。</p>
             </div>
             <form class="airdrop-form" id="airdrop-form" action="#" method="get">
+              <label for="twitter">推特用户名</label>
+              <input id="twitter" name="twitter" type="text" placeholder="@用户名" autocomplete="off" spellcheck="false" maxlength="31" />
               <label for="wallet">钱包地址（切勿填写助记词或私钥）</label>
               <input id="wallet" name="wallet" type="text" placeholder="填写 Solana 地址…" autocomplete="off" spellcheck="false" />
-              <button class="btn btn-primary" id="claim-button" type="button">领取空投</button>
-              <p class="form-hint" id="claim-hint">状态：已开放。可以填写 Solana 地址并点击领取。本页只打开前端入口，点击不会发起链上交易。请勿填写助记词或私钥。</p>
+              <button class="btn btn-primary" id="claim-button" type="submit">领取空投</button>
+              <p class="form-hint" id="claim-hint">状态：已开放。填写推特用户名和钱包地址后点击领取。记录只保存在本机，点击不会发起链上交易。请勿填写助记词或私钥。</p>
+              <div class="claim-saved" id="claim-saved" hidden>
+                <p class="claim-saved-title" id="claim-saved-title" aria-live="polite">已保存</p>
+                <pre class="claim-summary" id="claim-summary"></pre>
+                <button class="btn btn-ghost" id="claim-copy" type="button">复制摘要</button>
+                <ul class="claim-saved-list" id="claim-saved-list"></ul>
+              </div>
             </form>
           </div>
         </div>
