@@ -203,7 +203,7 @@
         <h2>合约 / 空投入口</h2>
         <p class="section-intro">
           KIND 已在 <strong>Solana 主网（mainnet-beta）</strong>创建，并按既定比例拆入六个 Squads 金库。
-          下列 Mint、多签与 Vault / ATA 与链上公示一致。空投<strong>领取</strong>在下方倒计时归零后自动开放；未到开放时刻时表单关闭。
+          下列 Mint、多签与 Vault / ATA 与链上公示一致。空投<strong>领取</strong>入口已开放，供前端测试；点击不会发起链上交易。
           请勿向本页未列出的地址转账，勿泄露助记词或私钥。
         </p>
         <div class="access-panel">
@@ -251,22 +251,22 @@
           </div>
           <div class="access-block" id="airdrop-claim">
             <h3>空投领取</h3>
-            <!-- 开放时刻写死在 main.js 的 CLAIM_OPENS_AT（Asia/Shanghai，提交时刻 + 24 小时） -->
-            <div class="claim-countdown" id="claim-countdown" data-state="closed" role="group" aria-labelledby="countdown-lead">
-              <p class="countdown-lead" id="countdown-lead">24 小时后开放领取</p>
-              <div class="countdown-grid" id="countdown-grid" aria-hidden="true">
+            <!-- 临时测试：已取消 CLAIM_OPENS_AT 时间门禁，领取入口保持开放 -->
+            <div class="claim-countdown is-open" id="claim-countdown" data-state="open" role="group" aria-labelledby="countdown-lead">
+              <p class="countdown-lead" id="countdown-lead">已开放</p>
+              <div class="countdown-grid" id="countdown-grid" hidden>
                 <div class="cd-unit"><span id="cd-hours">--</span><small>时</small></div>
                 <div class="cd-unit"><span id="cd-minutes">--</span><small>分</small></div>
                 <div class="cd-unit"><span id="cd-seconds">--</span><small>秒</small></div>
               </div>
-              <p class="countdown-meta" id="countdown-meta">开放时刻以北京时间（Asia/Shanghai）为准。到点前领取入口关闭。</p>
-              <p class="sr-only" id="countdown-live" aria-live="polite"></p>
+              <p class="countdown-meta" id="countdown-meta">领取入口已开放，可供测试。</p>
+              <p class="sr-only" id="countdown-live" aria-live="polite">领取已开放。</p>
             </div>
             <form class="airdrop-form" id="airdrop-form" action="#" method="get">
               <label for="wallet">钱包地址（切勿填写助记词或私钥）</label>
-              <input id="wallet" name="wallet" type="text" placeholder="开放后填写 Solana 地址…" autocomplete="off" spellcheck="false" disabled />
-              <button class="btn btn-primary" id="claim-button" type="button" disabled>领取空投（未开放）</button>
-              <p class="form-hint" id="claim-hint">状态：未开放。倒计时结束前领取入口关闭，到点后自动可填、可点。本页只做前端开关，不接入链上领取合约。空投数量不代表未来价格。</p>
+              <input id="wallet" name="wallet" type="text" placeholder="填写 Solana 地址…" autocomplete="off" spellcheck="false" />
+              <button class="btn btn-primary" id="claim-button" type="button">领取空投</button>
+              <p class="form-hint" id="claim-hint">状态：已开放。可以填写 Solana 地址并点击领取。本页只打开前端入口，点击不会发起链上交易。请勿填写助记词或私钥。</p>
             </form>
           </div>
         </div>
