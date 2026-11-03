@@ -416,6 +416,51 @@ a:hover {
   color: var(--muted);
 }
 
+.claim-saved {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+  padding: 0.8rem 0.85rem;
+  border-radius: 12px;
+  background: var(--leaf-soft);
+  border: 1px solid #b7d0c2;
+}
+
+.claim-saved[hidden] {
+  display: none;
+}
+
+.claim-saved-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--leaf);
+}
+
+.claim-summary {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+}
+
+.claim-saved-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.claim-saved-list li {
+  margin-bottom: 0.25rem;
+  word-break: break-all;
+}
+
 .claim-countdown {
   margin: 0 0 1rem;
   padding: 0.9rem 0.95rem 0.85rem;
