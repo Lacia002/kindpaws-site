@@ -1,17 +1,24 @@
 # KindPaws (KIND) 官网
 
-纯静态单页：`index.html` + `styles.css` + `main.js`。无需构建。文案对齐白皮书 v0.1-draft。
+纯静态单页：`index.html` + `styles.css` + `main.js`。无需构建。文案对齐白皮书 v0.1.1-draft。主网 Mint、Squads 多签与六桶金库地址已写入页面。
 
 ## 本地预览
 
 ```bash
-cd /workspace/kindpaws-site && python3 -m http.server 8080
+python3 -m http.server 8080
 ```
 
 浏览器打开：http://127.0.0.1:8080/
 
+## 发布
+
+- GitHub Pages：默认分支 `main` 的仓库根目录（已有 `.nojekyll`）。
+- 自定义域名：根目录 `CNAME` 为 `kindpaws.site`。DNS 的 A/CNAME 由域名侧指向 GitHub Pages。
+- Enforce HTTPS：在 GitHub Pages 证书签发后开启。若设置接口因证书未就绪被拒绝，先保留自定义域名，证书可用后再打开强制 HTTPS。
+
 ## 说明
 
 - 中文为主；Hero 含英文副标题。
-- 红线已写入页面：Solana；众筹+贡献空投；默认流浪猫狗；KIND=参与/治理信号（非理财、无 APY/保本）；持有/购买 ≠ 捐赠收据 ≠ 税务抵扣；透明公示；反对「买入即暴富」。
-- 总量、分配比例、硬顶、合约地址、空投入口等标「待公布 / 草案」，未编造数字或地址。
+- 红线未改：Solana；众筹+贡献空投；默认流浪猫狗；KIND=参与/治理信号（非理财、无 APY/保本）；持有/购买 ≠ 捐赠收据 ≠ 税务抵扣；透明公示；反对「买入即暴富」。
+- 代币比例未改：救助 35% / 众筹 25% / 空投 15% / 流动性 15% / 团队 7% / 生态 3%。团队桶为待锁 staging，本轮无 Streamflow。
+- 空投领取表单仍关闭。现金科目 C_treasury / C_ops 地址、硬顶、窗口与发放公式仍待公布。
