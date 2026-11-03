@@ -632,6 +632,15 @@ a:hover {
   white-space: nowrap;
 }
 
+.addr-table {
+  min-width: 880px;
+}
+
+.addr-table .mono {
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
 .subblock code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.88em;
