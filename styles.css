@@ -243,6 +243,51 @@ a:hover {
   padding: 0.55rem 0.75rem;
 }
 
+.pay-block,
+.kind-hold {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.kind-hold {
+  margin-top: 0.2rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+}
+
+.kind-hold h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.kind-hold > p:not(.addr-kicker):not(.addr-line) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.addr-pay {
+  margin: 0;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.addr-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.addr-meta .mono {
+  word-break: break-all;
+}
+
 .eyebrow {
   display: inline-block;
   margin: 0 0 0.75rem;

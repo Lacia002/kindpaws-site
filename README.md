@@ -29,12 +29,12 @@ python3 -m http.server 8080
 
 点击领取后，页面把这两项整理成可读文本：写入本机 `localStorage`（键 `kindpaws.claimNotes`），显示可复制摘要，并下载 `kindpaws-claim.txt`。页面提示「已保存」。点击不调用链上合约，也不会发起交易。
 
-## 首页众筹桶
+## 首页众筹收款
 
-首页 `#crowdfund` 公示众筹 KIND 桶，不再提供提交意向的表单。
+首页 `#crowdfund` 公示主网现金收款地址，并保留众筹 KIND 桶。
 
-- Vault PDA（桶地址）：`Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt`
-- KIND ATA：`Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr`（250,000,000 KIND）
-- Mint：`7DSCRKxYD4iS9vwjkUgrYWkXpoCjmuZP38dcERNFdZwa`
-- 这是 Squads 多签控制的 KIND 桶，不是 USDC、USDT 或 SOL 收款地址。
-- 规则仍写在卡片上：1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND；窗口至 2026-12-03 19:13:24（北京时间）；硬顶 2.5 亿 KIND；现金 60/40 的收款地址尚未公布。
+- SOL 直收（Vault PDA）：`Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt`
+- USDC ATA：`77fJqwSXL2ZK2bcDznaqYbiDwW89U8nwWTaLZMssV9Wh`（mint `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v`）
+- USDT ATA：`G5G3AG7yj9yyTbVuzcQqfaMGtfA1VR9fj8BHksS8wP1S`（mint `Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB`）
+- KIND 桶 Vault 与 SOL 直收是同一 PDA。KIND ATA：`Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr`（250,000,000 KIND）。不要把 SOL、USDC 或 USDT 打进 KIND ATA。
+- 规则：1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND；窗口至 2026-12-03 19:13:24（北京时间）；硬顶 2.5 亿 KIND；现金 60/40。
