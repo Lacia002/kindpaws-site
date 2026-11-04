@@ -31,10 +31,9 @@ python3 -m http.server 8080
 
 ## 首页众筹收款
 
-首页 `#crowdfund` 公示主网现金收款地址，并保留众筹 KIND 桶。
+首页 `#crowdfund` 只公示主网现金收款地址。
 
 - SOL 直收（Vault PDA）：`Ct5znNfdHzZipsEAmAiKckMHRtGh2xPupoPeASrP6Nxt`
 - USDC ATA：`77fJqwSXL2ZK2bcDznaqYbiDwW89U8nwWTaLZMssV9Wh`（mint `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v`）
 - USDT ATA：`G5G3AG7yj9yyTbVuzcQqfaMGtfA1VR9fj8BHksS8wP1S`（mint `Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB`）
-- KIND 桶 Vault 与 SOL 直收是同一 PDA。KIND ATA：`Ebpmyp6G84RLTJvaceys6hGTJaBnTHaKriga6CU1YWpr`（250,000,000 KIND）。不要把 SOL、USDC 或 USDT 打进 KIND ATA。
 - 规则：1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND；窗口至 2026-12-03 19:13:24（北京时间）；硬顶 2.5 亿 KIND；现金 60/40。
