@@ -26,7 +26,7 @@
 /**
  * 空投领取开关。
  * 临时测试：已取消 CLAIM_OPENS_AT（2026-11-04T18:17:59+08:00）时间门禁。
- * 领取时把推特用户名和钱包地址保存到本机，并下载文本。点击不发起链上交易。
+ * 登记时把推特用户名和钱包地址保存到本机，并下载文本。提交不发起链上交易。
  */
 function initClaimGate() {
   var STORAGE_KEY = "kindpaws.claimNotes";
@@ -53,14 +53,14 @@ function initClaimGate() {
   countdown.setAttribute("data-state", "open");
   countdown.classList.add("is-open");
   grid.hidden = true;
-  lead.textContent = "已开放";
-  meta.textContent = "领取入口已开放，可供测试。";
+  lead.textContent = "登记已开放";
+  meta.textContent = "填写推特用户名和钱包地址，完成本地登记。";
   twitter.disabled = false;
   wallet.disabled = false;
   wallet.placeholder = "填写 Solana 地址…";
   claimButton.disabled = false;
-  claimButton.textContent = "领取空投";
-  if (live) live.textContent = "领取已开放。";
+  claimButton.textContent = "提交登记";
+  if (live) live.textContent = "空投领取登记已开放。";
 
   var latestText = "";
 
@@ -97,7 +97,7 @@ function initClaimGate() {
 
   function formatNote(note) {
     return [
-      "KindPaws 空投领取测试记录",
+      "KindPaws 空投领取登记",
       "推特用户名：" + note.twitter,
       "钱包地址：" + note.wallet,
       "保存时间：" + note.savedAt + "（北京时间）"
@@ -179,7 +179,7 @@ function initClaimGate() {
     var text = formatNote(note);
     downloadText("kindpaws-claim.txt", text);
     renderNotes(stored ? readNotes() : notes, true);
-    claimHint.textContent = "已保存。摘要在下方，文本文件已下载到本机。这次点击没有发起链上交易。";
+    claimHint.textContent = "已保存。这是领取登记，摘要在下方，文本文件已下载到本机。这次提交没有发起链上交易。";
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).catch(function () {});
     }
@@ -192,7 +192,7 @@ function initClaimGate() {
       if (!latestText) return;
       var done = function () {
         if (savedTitle) savedTitle.textContent = "已保存";
-        claimHint.textContent = "已保存。摘要已复制。这次没有发起链上交易。";
+        claimHint.textContent = "已保存。登记摘要已复制。这次没有发起链上交易。";
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(latestText).then(done).catch(function () {
