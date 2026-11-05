@@ -93,9 +93,9 @@
     <section class="section redlines" aria-label="关键定位与红线">
       <div class="container">
         <div class="callout callout-key">
-          <h2 class="callout-title">请先读清这几条</h2>
+          <h2 class="callout-title">风险提示</h2>
           <ul class="redline-list">
-            <li><strong>链与模式：</strong>KIND 在 Solana；自愿众筹 + 贡献空投；默认救助对象为流浪猫、流浪狗。</li>
+            <li><strong>项目背景：</strong>KIND 在 Solana；自愿众筹 + 贡献空投；默认救助对象为流浪猫、流浪狗。</li>
             <li><strong>KIND 定位：</strong>效用与参与/治理信号代币——标识支持者、激励核验贡献、对救助提案做轻量投票信号；<strong>不是</strong>证券化收益产品，<strong>不是</strong>理财，<strong>无</strong>本金保障、<strong>无</strong>稳定收益、<strong>无</strong> APY / 被动收入承诺。</li>
             <li><strong>边界：</strong>持有或购买 KIND <strong>≠</strong> 捐赠收据 <strong>≠</strong> 税务抵扣凭证 <strong>≠</strong> 对某一具体救助个案的合同义务或结果保证。</li>
             <li><strong>叙事：</strong>强调资金与救助<strong>透明公示</strong>；反对「买入即暴富 / 买入即空投暴富」的投机叙事。</li>
@@ -118,12 +118,12 @@
           <article class="card">
             <div class="card-icon" aria-hidden="true">💚</div>
             <h3>自愿众筹</h3>
-            <p>接受 USDC、USDT、SOL。1 USDC 或 1 USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口至 2026-12-03 19:13:24（北京时间），硬顶为众筹桶 25%（2.5 亿 KIND），单人下限 1 USDT/USDC 或 0.01 SOL。SOL 打入众筹 Vault，USDC 与 USDT 打入首页公示的 ATA。不保证正收益或特定救助结果。</p>
+            <p>接受 USDC、USDT、SOL。1 USDC/USDT = 1,000 KIND，1 SOL = 100,000 KIND。窗口至 2026-12-03 19:13:24（北京时间）。硬顶 2.5 亿 KIND，单人下限 1 USDT/USDC 或 0.01 SOL。收款地址见首页。不保证收益或救助结果。</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true">🎁</div>
             <h3>贡献空投</h3>
-            <p>KIND 侧重奖励核验后的真实贡献：实地救助、寄养、医疗对接、内容、志愿运营、早期建设等。多轮可调；空投<strong>不等于</strong>投资回报，也不是「买入门槛暴富」。</p>
+            <p>用于社区建设：在 X（@KindPaws00）及相关社群里扩散救助进展、组织协作与志愿参与。社区热度与可核验的建设贡献，是这份回报的依据。不是买入门槛，也不是投资回报。</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true">🔗</div>
@@ -148,13 +148,28 @@
           <p class="draft-note">权重与上线节奏可调整；若未来有锁仓等技术功能，目的限于参与资格、反滥用或治理权重，而非收益承诺。</p>
         </div>
 
-        <div class="subblock">
-          <h3>透明公示（信任基础）</h3>
-          <p>
-            计划公开：<code>C_treasury</code> / <code>C_ops</code> 接收安排与多签成员阈值、收入（含众筹总额 C 及 60/40 入账）与分列支出明细、救助案例卡片（含失败与遗憾）、空投摘要与合约/权限变更。
-            轻量流程草案：提案 → 复审/信号 → 拨付 → 回执 → 月度看板。频率建议至少每月一次，重大支出即时——正式节奏<strong>待公布</strong>。
-            公示文案不得将「60% 现金进入救助国库」写成「投资者获得 60% 代币」。
-          </p>
+        <div class="transparency-feature" id="transparency">
+          <h3>透明公示</h3>
+          <div class="transparency-grid">
+            <div class="formula-panel">
+              <h4>公示公式</h4>
+              <p class="formula-eq"><span>C</span> 众筹实际募得现金</p>
+              <p class="formula-eq"><span>C_treasury</span> = 0.6C　救助国库</p>
+              <p class="formula-eq"><span>C_ops</span> = 0.4C　项目完善</p>
+              <p>公开收入、60/40 入账、分列支出、救助案例（含失败与遗憾）和合约变更。流程草案：提案 → 复审/信号 → 拨付 → 回执 → 月度看板。不得把「60% 现金进入救助国库」写成「投资者获得 60% 代币」。</p>
+            </div>
+            <div class="rescue-photos">
+              <h4>猫狗实地救助</h4>
+              <div class="photo-slot">
+                <strong>实地照片待补</strong>
+                <span>此处放置真实救助现场照片</span>
+              </div>
+              <div class="photo-slot">
+                <strong>实地照片待补</strong>
+                <span>不使用示意图或生成图片</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="subblock">
@@ -166,12 +181,12 @@
                 <tr><th>分配桶</th><th>占比</th><th>数量</th><th>说明</th></tr>
               </thead>
               <tbody>
-                <tr><td>救助</td><td>35%</td><td>3.5 亿</td><td>救助相关激励/拨付配合或长期储备等；释放规则待公布。<strong>代币桶 ≠ 现金救助国库</strong></td></tr>
-                <tr><td>众筹</td><td>25%</td><td>2.5 亿</td><td>首页参与预估：1 USDC/USDT = 1,000 KIND，1 SOL = 100,000 KIND。锁仓仍待公布。<strong>≠ 现金 60/40 拆分</strong></td></tr>
-                <tr><td>空投</td><td>15%</td><td>1.5 亿</td><td>贡献导向，多轮释放；计分细则待公布</td></tr>
+                <tr><td>救助</td><td>35%</td><td>3.5 亿</td><td>锁定。按项目热度在后续阶段解锁（回报第二阶段）。<strong>代币桶 ≠ 现金救助国库</strong></td></tr>
+                <tr><td>众筹</td><td>25%</td><td>2.5 亿</td><td>收到捐赠后给予捐赠方的众筹回报。预估：1 USDC/USDT = 1,000 KIND，1 SOL = 100,000 KIND。<strong>≠ 现金 60/40 拆分</strong></td></tr>
+                <tr><td>空投</td><td>15%</td><td>1.5 亿</td><td>社区建设回报：在 X 及相关社群贡献热度可获得</td></tr>
                 <tr><td>流动性</td><td>15%</td><td>1.5 亿</td><td>仅技术流动性/做市需求，不承诺价格</td></tr>
                 <tr><td>团队</td><td>7%</td><td>0.7 亿</td><td>主网已划入团队金库，待锁 staging；Streamflow 与释放日历尚未建立</td></tr>
-                <tr><td>生态</td><td>3%</td><td>0.3 亿</td><td>活动、合作、小额生态激励等；建议多签管理</td></tr>
+                <tr><td>回购</td><td>3%</td><td>0.3 亿</td><td>定期回购并销毁</td></tr>
               </tbody>
             </table>
           </div>
@@ -281,31 +296,31 @@
               </div>
               <div>
                 <dt>分配总览</dt>
-                <dd>救助 35% / 众筹 25% / 空投 15% / 流动性 15% / 团队 7% / 生态 3%（比例未改；团队为待锁 staging）</dd>
+                <dd>救助 35%（锁定，按热度后续解锁）/ 众筹 25%（捐赠回报）/ 空投 15%（社区建设回报）/ 流动性 15% / 团队 7% / 回购 3%（定期回购销毁）。团队为待锁 staging</dd>
               </div>
             </dl>
             <a class="btn btn-primary" href="https://solscan.io/token/7DSCRKxYD4iS9vwjkUgrYWkXpoCjmuZP38dcERNFdZwa" rel="noopener noreferrer" target="_blank">在 Solscan 查看 Mint</a>
           </div>
           <div class="access-block" id="airdrop-claim">
-            <h3>空投领取</h3>
-            <!-- 临时测试：已取消 CLAIM_OPENS_AT 时间门禁，领取入口保持开放 -->
+            <h3>空投领取登记</h3>
+            <!-- 登记入口保持开放。提交只写入本机，不发起链上交易。 -->
             <div class="claim-countdown is-open" id="claim-countdown" data-state="open" role="group" aria-labelledby="countdown-lead">
-              <p class="countdown-lead" id="countdown-lead">已开放</p>
+              <p class="countdown-lead" id="countdown-lead">登记已开放</p>
               <div class="countdown-grid" id="countdown-grid" hidden>
                 <div class="cd-unit"><span id="cd-hours">--</span><small>时</small></div>
                 <div class="cd-unit"><span id="cd-minutes">--</span><small>分</small></div>
                 <div class="cd-unit"><span id="cd-seconds">--</span><small>秒</small></div>
               </div>
-              <p class="countdown-meta" id="countdown-meta">领取入口已开放，可供测试。</p>
-              <p class="sr-only" id="countdown-live" aria-live="polite">领取已开放。</p>
+              <p class="countdown-meta" id="countdown-meta">填写推特用户名和钱包地址，完成本地登记。</p>
+              <p class="sr-only" id="countdown-live" aria-live="polite">空投领取登记已开放。</p>
             </div>
             <form class="airdrop-form" id="airdrop-form" action="#" method="get">
               <label for="twitter">推特用户名</label>
               <input id="twitter" name="twitter" type="text" placeholder="@用户名" autocomplete="off" spellcheck="false" maxlength="31" />
               <label for="wallet">钱包地址（切勿填写助记词或私钥）</label>
               <input id="wallet" name="wallet" type="text" placeholder="填写 Solana 地址…" autocomplete="off" spellcheck="false" />
-              <button class="btn btn-primary" id="claim-button" type="submit">领取空投</button>
-              <p class="form-hint" id="claim-hint">状态：已开放。填写推特用户名和钱包地址后点击领取。记录只保存在本机，点击不会发起链上交易。请勿填写助记词或私钥。</p>
+              <button class="btn btn-primary" id="claim-button" type="submit">提交登记</button>
+              <p class="form-hint" id="claim-hint">状态：登记已开放。记录只保存在本机，提交不会发起链上交易。请勿填写助记词或私钥。</p>
               <div class="claim-saved" id="claim-saved" hidden>
                 <p class="claim-saved-title" id="claim-saved-title" aria-live="polite">已保存</p>
                 <pre class="claim-summary" id="claim-summary"></pre>
@@ -373,7 +388,7 @@
                   <td><a class="mono" href="https://solscan.io/account/qQuqB1V444P9W27jLJKdMy1898dYuyFRjMHXUbtEgph" rel="noopener noreferrer" target="_blank">qQuqB1V444P9W27jLJKdMy1898dYuyFRjMHXUbtEgph</a></td>
                 </tr>
                 <tr>
-                  <td>生态</td>
+                  <td>回购</td>
                   <td>3%</td>
                   <td>30,000,000</td>
                   <td><a class="mono" href="https://solscan.io/account/A1gPdrB9YkwvN33AzxbKGUsx9cL3XMeAJroVQUetxm4D" rel="noopener noreferrer" target="_blank">A1gPdrB9YkwvN33AzxbKGUsx9cL3XMeAJroVQUetxm4D</a></td>
@@ -427,11 +442,13 @@
       <p class="footer-disclaimer">
         本站为社区项目公开说明页，内容对齐白皮书 v0.1.1-draft，可被后续版本取代。
         KIND 为参与/治理信号，非理财产品；持有或购买不等于捐赠收据或税务抵扣。
-        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开。首页公示 SOL、USDC、USDT 收款地址。超额处理仍待公布。空投领取入口为前端测试。
+        不构成投资建议或收益承诺。总量 10 亿与六桶比例、众筹现金 60/40，以及主网 Mint、Squads 多签与六桶金库地址已公开。首页公示 SOL、USDC、USDT 收款地址。超额处理仍待公布。空投为领取登记，记录只在本机。
         众筹现金拆分 ≠ 众筹代币发放。项目方、社区与页面维护者就适用法律允许范围内不对直接或间接损失承担责任。正式规则以「参与须知」与官方公告为准。
       </p>
       <p class="footer-contact">
-        联系（待公布）：官方渠道确定前请勿向陌生地址转账 · 社交与邮箱待定
+        官方 X：<a href="https://x.com/KindPaws00" rel="noopener noreferrer" target="_blank">@KindPaws00</a>
+        · 邮箱待定
+        · 请勿向陌生地址转账
       </p>
       <p class="footer-copy">© <span id="year"></span> KindPaws · 静态官网 · 反对「买入即暴富」叙事 · 非投资产品</p>
     </div>
