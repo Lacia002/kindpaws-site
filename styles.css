@@ -756,9 +756,6 @@ a:hover {
     gap: 0.15rem;
   }
 
-  .transparency-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Lead secondary */
@@ -986,4 +983,10 @@ a:hover {
   background: var(--bg-alt);
   padding: 0.1em 0.35em;
   border-radius: 4px;
+}
+
+@media (max-width: 720px) {
+  .transparency-grid {
+    grid-template-columns: 1fr;
+  }
 }
